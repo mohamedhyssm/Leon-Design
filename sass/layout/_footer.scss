@@ -1,0 +1,18 @@
+footer {
+    // dimentions
+    min-height: 100px;
+    width: 100%;
+    // padding
+    @include padding-section(25px, 25px);
+    //color
+    color: white;
+    background-color: #2c4755;
+    // font
+    text-align: center;
+    font-size: 18px;
+
+    span {
+        color: $mainColor;
+        font-weight: bold;
+    }
+}

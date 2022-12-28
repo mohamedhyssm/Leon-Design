@@ -1,0 +1,97 @@
+// container and logo
+header {
+    padding: 20px;
+
+    .container {
+        @include flex-spaceBetween();
+
+        .logo {
+            width: 60px;
+        }
+    }
+}
+
+// links and span
+header .container .links {
+    position: relative;
+    cursor: pointer;
+
+    .icons {
+        // dimentions
+        width: 30px;
+        // flex
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        span {
+            height: 2px;
+            margin-bottom: 5px;
+            background-color: #333;
+        }
+
+        span:not(:nth-child(2)) {
+            width: 100%;
+        }
+
+        span:nth-child(2) {
+            width: 50%;
+            transition: 0.3s;
+
+            &.active-span {
+                width: 100%;
+            }
+        }
+
+    }
+}
+
+// links nav
+header .container .links {
+    ul {
+        // reset margin padding and style
+        @include list-rest;
+        // position
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+        // dimentions
+        min-width: 200px;
+        // decoration 
+        background-color: #f6f6f6;
+        display: none;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            // position
+            position: absolute;
+            right: 5px;
+            top: -20px;
+            // border
+            border: 10px solid;
+            border-color: transparent transparent #f6f6f6 transparent;
+        }
+
+        li a {
+            display: block;
+            color: #333;
+            padding: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+
+            &:hover {
+                padding-left: 25px;
+            }
+
+        }
+
+        li:not(:last-child) a {
+            border-bottom: solid 3px #eee;
+        }
+
+        &.active-ul {
+            display: block !important;
+        }
+    }
+}
